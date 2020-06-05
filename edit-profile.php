@@ -47,17 +47,10 @@ if (isset($_POST['submit'])) {
         <div class="row">
             <div class="col-md-4">
                 <div class="list-group">
-                    <?php if (isset($_SESSION["sistempakar_session"]) && $_SESSION["sistempakar_session"]['level'] != 'admin'): ?>
                     <a href="./member.php" class="list-group-item">Dashboard</a>
                     <a href="./profile.php" class="list-group-item active">Profile</a>
                     <a href="./riwayat.php" class="list-group-item">Riwayat Konseling</a>
                     <a href="./keluar.php" class="list-group-item">Keluar</a>
-                    <?php else: ?>
-                    <a href="./admin.php" class="list-group-item">Dashboard</a>
-                    <a href="./users.php" class="list-group-item active">Users</a>
-                    <a href="./riwayat.php" class="list-group-item">Riwayat Konseling</a>
-                    <a href="./keluar.php" class="list-group-item">Keluar</a>
-                    <?php endif; ?>
                 </div>
             </div>
             <div class="col-md-8">

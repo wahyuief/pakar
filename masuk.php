@@ -2,7 +2,7 @@
 include('header.php');
 if (isset($_SESSION["sistempakar_session"])) {
     if ($_SESSION["sistempakar_session"]['level'] == 'admin') {
-        echo '<meta http-equiv="Refresh" content="0; url=./admin.php" />';
+        echo '<meta http-equiv="Refresh" content="0; url=./admin/index.php" />';
     } else {
         echo '<meta http-equiv="Refresh" content="0; url=./member.php" />';
     }
@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
         if (password_verify($password, $user['password'])) {
             $_SESSION["sistempakar_session"] = $user;
             if ($user['level'] == 'admin') {
-                echo '<meta http-equiv="Refresh" content="2; url=./admin.php" />';
+                echo '<meta http-equiv="Refresh" content="2; url=./admin/index.php" />';
             } else {
                 echo '<meta http-equiv="Refresh" content="2; url=./member.php" />';
             }
@@ -50,10 +50,9 @@ if (isset($_POST['submit'])) {
                         <div class="btn-group btn-group-sm pull-right">
                             <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Sign In</button>
                         </div>
-                        <label id="topt-fixed-header-top" class="switch switch-success pull-left" data-toggle="tooltip" title="Remember me"><input type="checkbox" name="remember"> <span>Ingat Saya</span></label>
+                        <a href="./daftar.php">Belum punya akun? Daftar!</a>
                     </div>
                 </form>
-                <a href="./lupa-password.php">Lupa Password?</a>
             </div>
         </div>
     </div>

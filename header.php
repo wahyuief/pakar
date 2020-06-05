@@ -1,7 +1,4 @@
-<?php 
-require('database.php');
-session_start();
-?>
+<?php require('database.php'); ?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -81,26 +78,17 @@ session_start();
                         <div class="menu-list">
                             <ul>
                                 <li><a href="index.php">Beranda</a></li>
-                                <li class="menu-item-has-children"><a href="#">Tentang</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">- Tentang Kami</a></li>
-                                        <li><a href="#">- Pencapaian</a></li>
-                                        <li><a href="#">- Tentang Bunuh Diri</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Hotline</a></li>
                                 <?php
                                 if (isset($_SESSION["sistempakar_session"])) {
                                     if ($_SESSION["sistempakar_session"]['level'] == 'admin') {
-                                        echo '<li><a href="./admin.php">Admin</a></li>
+                                        echo '<li><a href="./admin/index.php">Admin</a></li>
                                         <li><a href="./keluar.php">Keluar</a></li>';
                                     } else {
                                         echo '<li><a href="./member.php">Member</a></li>
                                         <li><a href="./keluar.php">Keluar</a></li>';
                                     }
                                 } else {
-                                    echo '<li><a href="./daftar.php">Daftar</a></li>
-                                    <li><a href="./masuk.php">Masuk</a></li>';
+                                    echo '<li><a href="./masuk.php">Mulai Konseling</a></li>';
                                 }
                                 ?>
                             </ul>
