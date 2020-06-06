@@ -31,10 +31,10 @@ if (isset($_POST['submit'])) {
             WHERE id='$sess_id'";
 
     if ($conn->query($query) === TRUE) {
-        $pesan = '<div class="alert alert-success">Perubahan Data Berhasil</div>';
-        echo '<meta http-equiv="Refresh" content="2; url=./users.php" />';
+        $_SESSION["pesan"] = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> Perubahan Data Berhasil</div>';
+        header('Location: ./user-edit.php?id='.$sess_id);
     } else {
-        $pesan = '<div class="alert alert-danger">Perubahan Data Gagal</div>';
+        $_SESSION["pesan"] = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> Perubahan Data Gagal</div>';
     }
 }
 ?>
@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h2>Edit User</h2>
-                        <?php echo(isset($pesan) ? $pesan : '') ?>
+                        <?php echo(isset($_SESSION["pesan"]) ? $_SESSION["pesan"] : '') ?>
                         <form method="post" class="panel panel-default">
                             <div class="panel-body table-responsive">
                                 <table class="table">

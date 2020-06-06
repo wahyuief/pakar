@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
                 VALUE ('$nik', '$email', '$first_name', '$last_name', '$phone', '$address', '$birthdate', '$gender', '$password')";
         if ($conn->query($query) === TRUE) {
             $pesan = '<div class="alert alert-success">Penambahan Data Berhasil</div>';
-            echo '<meta http-equiv="Refresh" content="2; url=./users.php" />';
+            echo '<meta http-equiv="Refresh" content="1; url=./users.php" />';
         } else {
             $pesan = '<div class="alert alert-danger">Penambahan Data Gagal</div>';
         }

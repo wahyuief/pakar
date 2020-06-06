@@ -1,7 +1,7 @@
 <?php
 $title = 'Analisa';
 include('header.php');
-
+unset($_SESSION["pesan"]);
 $analisis = $conn->query("SELECT id_analisa, first_name, last_name, nik, penyakit.kode_penyakit, nama_penyakit, tanggal
                         FROM analisa
                         LEFT JOIN users ON analisa.id_user = users.id

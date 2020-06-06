@@ -1,6 +1,6 @@
 <?php
 include('header.php');
-
+unset($_SESSION["pesan"]);
 $total_users = $conn->query("SELECT * FROM users")->num_rows;
 $total_analisa = $conn->query("SELECT * FROM analisa")->num_rows;
 $total_gejala = $conn->query("SELECT * FROM gejala")->num_rows;

@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
         $query = "INSERT INTO penyakit (kode_penyakit, nama_penyakit, definisi, pengendalian) VALUE ('$kode_penyakit', '$nama_penyakit', '$definisi', '$pengendalian')";
         if ($conn->query($query) === TRUE) {
             $pesan = '<div class="alert alert-success">Penambahan Data Berhasil</div>';
-            echo '<meta http-equiv="Refresh" content="2; url=./penyakit.php" />';
+            echo '<meta http-equiv="Refresh" content="1; url=./penyakit.php" />';
         } else {
             $pesan = '<div class="alert alert-danger">Penambahan Data Gagal</div>';
         }

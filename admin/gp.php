@@ -1,7 +1,7 @@
 <?php
 $title = 'Gejala Penyakit';
 include('header.php');
-
+unset($_SESSION["pesan"]);
 $gpnya = $conn->query("SELECT id_gp, gejala.kode_gejala, gejala.nama_gejala, penyakit.kode_penyakit, penyakit.nama_penyakit, keyakinan, ketidakyakinan
                     FROM gejala_penyakit
                     LEFT JOIN gejala ON gejala_penyakit.kode_gejala = gejala.kode_gejala

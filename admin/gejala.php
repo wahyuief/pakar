@@ -1,7 +1,7 @@
 <?php
 $title = 'Gejala';
 include('header.php');
-
+unset($_SESSION["pesan"]);
 $gejalanya = $conn->query("SELECT * FROM gejala ORDER BY id_gejala DESC");
 
 ?>

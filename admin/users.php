@@ -1,7 +1,7 @@
 <?php
 $title = 'Users';
 include('header.php');
-
+unset($_SESSION["pesan"]);
 $sess_id = $_SESSION["sistempakar_session"]['id'];
 $users = $conn->query("SELECT * FROM users");
 ?>

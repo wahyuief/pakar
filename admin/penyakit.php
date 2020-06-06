@@ -1,7 +1,7 @@
 <?php
 $title = 'Penyakit';
 include('header.php');
-
+unset($_SESSION["pesan"]);
 $penyakitnya = $conn->query("SELECT * FROM penyakit ORDER BY id_penyakit DESC");
 
 ?>
