@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
                                     <tr>
                                         <td width="150">Kode Gejala <i class="text-danger">*</i></td>
                                         <td>:</td>
-                                        <td><input type="text" class="form-control" name="kode_gejala" placeholder="G001" value="G00<?php echo ltrim($lastcode, 'G')+1; ?>" readonly></td>
+                                        <td><input type="text" class="form-control" name="kode_gejala" placeholder="G001" value="<?php echo 'G'.str_pad(ltrim($lastcode, 'G')+1, 3, '0', STR_PAD_LEFT); ?>" readonly></td>
                                     </tr>
                                     <tr>
                                         <td>Nama Gejala <i class="text-danger">*</i></td>
