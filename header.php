@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="msapplication-tap-highlight" content="yes" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0" />
-
+    <link rel="dns-prefetch" href="//fonts.gstatic.com/" >
+    <link rel="dns-prefetch" href="//fonts.googleapis.com/" >
     <!-- Google Web Font -->
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lekton:400,700,400italic' rel='stylesheet' type='text/css'>
@@ -81,10 +82,12 @@
                                 <?php
                                 if (isset($_SESSION["sistempakar_session"])) {
                                     if ($_SESSION["sistempakar_session"]['level'] == 'admin') {
-                                        echo '<li><a href="./admin/index.php">Admin</a></li>
+                                        echo '<li><a href="./konseling.php">Mulai Konseling</a></li>
+                                        <li><a href="./admin/index.php">Admin</a></li>
                                         <li><a href="./keluar.php">Keluar</a></li>';
                                     } else {
-                                        echo '<li><a href="./member.php">Member</a></li>
+                                        echo '<li><a href="./konseling.php">Mulai Konseling</a></li>
+                                        <li><a href="./member.php">Member</a></li>
                                         <li><a href="./keluar.php">Keluar</a></li>';
                                     }
                                 } else {

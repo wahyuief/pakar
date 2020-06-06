@@ -6,8 +6,15 @@ if (!isset($_SESSION["sistempakar_session"])) {
 
 $sess_id = (isset($_GET['id']) ? $_GET['id'] : $_SESSION["sistempakar_session"]['id']);
 $user = $conn->query("SELECT * FROM users WHERE id='$sess_id'")->fetch_assoc();
+$existing = $conn->query("SELECT * FROM analisa WHERE id_user='$sess_id'")->num_rows;
 ?>
 <div class="main margin-top">
+    <?php if ($existing == 0) {
+        echo '<div class="container"><div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <strong>Selamat datang!</strong> Untuk memulai konseling online silakan <a href="konseling.php">klik disini</a>.
+        </div></div>';
+    } ?>
     <div class="container">
         <h1>Profile</h1>
         <div class="row">
@@ -26,39 +33,39 @@ $user = $conn->query("SELECT * FROM users WHERE id='$sess_id'")->fetch_assoc();
                         <a href="./edit-profile.php?id=<?php echo $sess_id; ?>" title="Edit Profile" class="float-right"><i class="pe pe-7s-pen"></i> Edit</a>
                     </div>
                     <div class="panel-body table-responsive">
-                        <table class="table">
+                        <table class="table table-striped table-hover">
                             <tr>
-                                <td width="200">NIK</td>
+                                <th width="200">NIK</th>
                                 <td>:</td>
                                 <td><?php echo $user['nik']; ?></td>
                             </tr>
                             <tr>
-                                <td>Nama Lengkap</td>
+                                <th>Nama Lengkap</th>
                                 <td>:</td>
                                 <td><?php echo $user['first_name'].' '.$user['last_name']; ?></td>
                             </tr>
                             <tr>
-                                <td>Email</td>
+                                <th>Email</th>
                                 <td>:</td>
                                 <td><?php echo $user['email']; ?></td>
                             </tr>
                             <tr>
-                                <td>No. Telp</td>
+                                <th>No. Telp</th>
                                 <td>:</td>
                                 <td><?php echo $user['phone']; ?></td>
                             </tr>
                             <tr>
-                                <td>Tanggal Lahir</td>
+                                <th>Tanggal Lahir</th>
                                 <td>:</td>
                                 <td><?php echo date('d M Y', strtotime($user['birthdate'])); ?></td>
                             </tr>
                             <tr>
-                                <td>Jenis Kelamin</td>
+                                <th>Jenis Kelamin</th>
                                 <td>:</td>
                                 <td><?php echo ($user['gender'] == 'P' ? 'Perempuan' : 'Laki-laki'); ?></td>
                             </tr>
                             <tr>
-                                <td>Alamat Rumah</td>
+                                <th>Alamat Rumah</th>
                                 <td>:</td>
                                 <td><?php echo $user['address']; ?></td>
                             </tr>

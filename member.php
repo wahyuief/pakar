@@ -6,8 +6,15 @@ if (!isset($_SESSION["sistempakar_session"])) {
 
 $sess_id = $_SESSION["sistempakar_session"]['id'];
 $user = $conn->query("SELECT * FROM users WHERE id='$sess_id'")->fetch_assoc();
+$existing = $conn->query("SELECT * FROM analisa WHERE id_user='$sess_id'")->num_rows;
 ?>
 <div class="main margin-top">
+    <?php if ($existing == 0) {
+        echo '<div class="container"><div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <strong>Selamat datang!</strong> Untuk memulai konseling online silakan <a href="konseling.php">klik disini</a>.
+        </div></div>';
+    } ?>
     <div class="container">
         <h1>Dashboard</h1>
         <div class="row">
