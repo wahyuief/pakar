@@ -46,11 +46,6 @@ $penyakitnya = $conn->query("SELECT * FROM penyakit ORDER BY id_penyakit DESC");
                     <i class="fa fa-user-md"></i>
                 </a>
             </li>
-            <li>
-                <a href="<?php echo $basepath; ?>/pertanyaan.php" data-toggle="tooltip" title="Kamus Pertanyaan" class="animation-fadeIn">
-                    <i class="fa fa-book"></i>
-                </a>
-            </li>
         </ul>
 
         <div class="row">

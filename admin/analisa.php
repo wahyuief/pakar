@@ -50,11 +50,6 @@ $analisis = $conn->query("SELECT id_analisa, first_name, last_name, nik, penyaki
                     <i class="fa fa-user-md"></i>
                 </a>
             </li>
-            <li>
-                <a href="<?php echo $basepath; ?>/pertanyaan.php" data-toggle="tooltip" title="Kamus Pertanyaan" class="animation-fadeIn">
-                    <i class="fa fa-book"></i>
-                </a>
-            </li>
         </ul>
 
         <h2>Analisa</h2>
