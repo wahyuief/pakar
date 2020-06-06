@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
             WHERE id='$sess_id'";
 
     if ($conn->query($query) === TRUE) {
-        $_SESSION["pesan"] = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> Perubahan Data Berhasil</div>';
+        $_SESSION["pesan"] = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> Perubahan Data Berhasil</div><meta http-equiv="Refresh" content="2; url=./users.php" />';
         header('Location: ./user-edit.php?id='.$sess_id);
     } else {
         $_SESSION["pesan"] = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> Perubahan Data Gagal</div>';
