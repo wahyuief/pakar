@@ -1,16 +1,17 @@
 <?php
+$title = 'Penyakit';
 include('header.php');
 if (isset($_SESSION["sistempakar_session"]) && $_SESSION["sistempakar_session"]['level'] != 'admin') {
     echo '<meta http-equiv="Refresh" content="0; url=./member.php" />';
 }
 
-$sess_id = $_SESSION["sistempakar_session"]['id'];
-$penyakit = $conn->query("SELECT * FROM penyakit");
+$penyakitnya = $conn->query("SELECT * FROM penyakit ORDER BY id_penyakit DESC");
+
 ?>
 <div id="inner-container">
     <div id="page-content">
         <ul id="nav-info" class="clearfix">
-            <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+            <li><a href="index.php"><i class="fa fa-home"></i></a></li>
             <li class="active"><a href="">Penyakit</a></li>
         </ul>
 
@@ -41,7 +42,7 @@ $penyakit = $conn->query("SELECT * FROM penyakit");
                 </a>
             </li>
             <li>
-                <a href="<?php echo $basepath; ?>/gejala-penyakit.php" data-toggle="tooltip" title="Gejala Penyakit" class="animation-fadeIn">
+                <a href="<?php echo $basepath; ?>/gp.php" data-toggle="tooltip" title="Gejala Penyakit" class="animation-fadeIn">
                     <i class="fa fa-user-md"></i>
                 </a>
             </li>
@@ -53,39 +54,33 @@ $penyakit = $conn->query("SELECT * FROM penyakit");
         </ul>
 
         <div class="row">
-            <div class="col-md-6"><h2>Penyakit <small><a href="tambah.php?from=penyakit" class="hidden-lg hidden-md">Tambah Data</a></small></h2></div>
-            <div class="col-md-6 text-right hidden-xs hidden-sm" style="line-height: 5;"><a href="tambah.php?from=penyakit" class="btn btn-primary">Tambah Data</a></div>
+            <div class="col-md-6"><h2>Penyakit <small><a href="penyakit-tambah.php" class="hidden-lg hidden-md">Tambah Data</a></small></h2></div>
+            <div class="col-md-6 text-right hidden-xs hidden-sm" style="line-height: 5;"><a href="penyakit-tambah.php" class="btn btn-primary">Tambah Data</a></div>
         </div>
         <div class="table-responsive">
-            <table class="table table-striped table-hover table-bordered">
+            <table id="penyakitAdminTable" class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th class="cell-small">No</th>
-                        <th class="hidden-xs">Email</th>
-                        <th class="hidden-xs">NIK</th>
-                        <th>Nama</th>
-                        <th class="hidden-xs">No. Telp</th>
-                        <th class="hidden-xs">Tanggal Lahir</th>
-                        <th class="hidden-xs">Jenis Kelamin</th>
-                        <th>Level</th>
+                        <th width="10">No</th>
+                        <th>Kode Penyakit</th>
+                        <th>Nama Penyakit</th>
+                        <th class="hidden-xs">Definisi</th>
+                        <th class="hidden-xs">Pengendalian</th>
                         <th class="cell-small">Option</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i=1;while($user = $penyakit->fetch_assoc()): ?>
+                    <?php $i=1;while($penyakit = $penyakitnya->fetch_assoc()): ?>
                     <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td class="hidden-xs"><?php echo $user['email']; ?></td>
-                        <td class="hidden-xs"><?php echo $user['nik']; ?></td>
-                        <td><?php echo $user['first_name'].' '.$user['last_name']; ?></td>
-                        <td class="hidden-xs"><?php echo $user['phone']; ?></td>
-                        <td class="hidden-xs"><?php echo date('d F Y', strtotime($user['birthdate'])).' / '.date_diff(date_create($user['birthdate']), date_create('now'))->y.' Tahun'; ?></td>
-                        <td class="hidden-xs"><?php echo ($user['gender'] == 'P' ? 'Perempuan' : 'Laki-Laki'); ?></td>
-                        <td><?php echo $user['level']; ?></td>
+                        <td class="text-center"><?php echo $i++; ?></td>
+                        <td><?php echo $penyakit['kode_penyakit']; ?></td>
+                        <td><?php echo $penyakit['nama_penyakit']; ?></td>
+                        <td class="hidden-xs"><?php echo $penyakit['definisi']; ?></td>
+                        <td class="hidden-xs"><?php echo $penyakit['pengendalian']; ?></td>
                         <td>
                             <div class="btn-group">
-                                <a href="./edit.php?from=penyakit&id=<?php echo $user['id']; ?>" data-toggle="tooltip" title="" class="btn btn-xs btn-success" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-                                <?php if($user['id'] == $sess_id): ?><a href="javascript:void(0)" onclick="var c = confirm('Yakin ingin menghapus?');if(c){location.replace('./hapus.php?from=penyakit&id=<?php echo $user['id']; ?>')}" data-toggle="tooltip" title="" class="btn btn-xs btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a><?php endif; ?>
+                                <a href="./penyakit-edit.php?id=<?php echo $penyakit['id_penyakit']; ?>" data-toggle="tooltip" title="" class="btn btn-xs btn-success" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:void(0)" onclick="var c = confirm('Yakin ingin menghapus?');if(c){location.replace('./penyakit-hapus.php?id=<?php echo $penyakit['id_penyakit']; ?>')}" data-toggle="tooltip" title="" class="btn btn-xs btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a>
                             </div>
                         </td>
                     </tr>

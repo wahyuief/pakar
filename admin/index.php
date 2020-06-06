@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo $basepath; ?>/gejala-penyakit.php" data-toggle="tooltip" title="Gejala Penyakit" class="animation-fadeIn">
+                <a href="<?php echo $basepath; ?>/gp.php" data-toggle="tooltip" title="Gejala Penyakit" class="animation-fadeIn">
                     <i class="fa fa-user-md"></i>
                 </a>
             </li>

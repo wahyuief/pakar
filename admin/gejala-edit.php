@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
                             <div class="panel-body table-responsive">
                                 <table class="table">
                                     <tr>
-                                        <td width="200">Kode Gejala <i class="text-danger">*</i></td>
+                                        <td width="150">Kode Gejala <i class="text-danger">*</i></td>
                                         <td>:</td>
                                         <td><input type="text" class="form-control" name="kode_gejala" value="<?php echo $gejala['kode_gejala']; ?>" readonly></td>
                                     </tr>

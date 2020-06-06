@@ -30,7 +30,7 @@
                     </li>
                 </ul>
 
-                <a href="index.html" class="navbar-brand"><img src="<?php echo $basepath; ?>/assets/img/template/logo.png" alt="logo"></a>
+                <a href="index.php" class="navbar-brand info">Administrator</a>
 
                 <div id="loading" class="pull-left"><i class="fa fa-certificate fa-spin"></i></div>
                 <ul id="widgets" class="navbar-nav-custom pull-right">

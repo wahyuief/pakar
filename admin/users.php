@@ -11,7 +11,7 @@ $users = $conn->query("SELECT * FROM users");
 <div id="inner-container">
     <div id="page-content">
         <ul id="nav-info" class="clearfix">
-            <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+            <li><a href="index.php"><i class="fa fa-home"></i></a></li>
             <li class="active"><a href="">Users</a></li>
         </ul>
 
@@ -42,7 +42,7 @@ $users = $conn->query("SELECT * FROM users");
                 </a>
             </li>
             <li>
-                <a href="<?php echo $basepath; ?>/gejala-penyakit.php" data-toggle="tooltip" title="Gejala Penyakit" class="animation-fadeIn">
+                <a href="<?php echo $basepath; ?>/gp.php" data-toggle="tooltip" title="Gejala Penyakit" class="animation-fadeIn">
                     <i class="fa fa-user-md"></i>
                 </a>
             </li>

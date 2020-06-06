@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
                             <div class="panel-body table-responsive">
                                 <table class="table">
                                     <tr>
-                                        <td width="200">Kode Gejala <i class="text-danger">*</i></td>
+                                        <td width="150">Kode Gejala <i class="text-danger">*</i></td>
                                         <td>:</td>
                                         <td><input type="text" class="form-control" name="kode_gejala" placeholder="G001" value="G00<?php echo ltrim($lastcode, 'G')+1; ?>" readonly></td>
                                     </tr>
