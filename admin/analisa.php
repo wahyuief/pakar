@@ -61,14 +61,14 @@ $analisis = $conn->query("SELECT id_analisa, first_name, last_name, nik, penyaki
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i=1;while($analisa = $analisis->fetch_assoc()): ?>
+                    <?php $i=1;while($analisa = $analisis->fetch_assoc()):if($analisa['nik']): ?>
                     <tr>
                         <td class="text-center"><?php echo $i++; ?></td>
                         <td><?php echo $analisa['first_name'].' '.$analisa['last_name'].' ('.$analisa['nik'].')'; ?></td>
                         <td><?php echo $analisa['nama_penyakit']; ?></td>
                         <td><?php echo date('H:i - d F Y', strtotime($analisa['tanggal'])); ?></td>
                     </tr>
-                    <?php endwhile; ?>
+                    <?php endif;endwhile; ?>
                 </tbody>
             </table>
         </div>
