@@ -1,8 +1,5 @@
 <?php
 include('header.php');
-if (!isset($_SESSION["sistempakar_session"])) {
-    echo '<meta http-equiv="Refresh" content="0; url=./masuk.php" />';
-}
 
 $gejalanya = $conn->query("SELECT * FROM gejala ORDER BY id_gejala DESC");
 $penyakitnya = $conn->query("SELECT * FROM penyakit ORDER BY id_penyakit DESC");

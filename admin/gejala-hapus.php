@@ -1,8 +1,5 @@
 <?php
 include('header.php');
-if (!isset($_SESSION["sistempakar_session"])) {
-    echo '<meta http-equiv="Refresh" content="0; url=./masuk.php" />';
-}
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

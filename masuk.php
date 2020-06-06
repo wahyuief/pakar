@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
                         <div class="btn-group btn-group-sm pull-right">
                             <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Sign In</button>
                         </div>
-                        <a href="./daftar.php">Belum punya akun? Daftar!</a>
+                        <a href="./daftar.php">Belum punya akun? Daftar disini!</a>
                     </div>
                 </form>
             </div>

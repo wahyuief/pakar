@@ -1,8 +1,5 @@
 <?php
 include('header.php');
-if (!isset($_SESSION["sistempakar_session"])) {
-    echo '<meta http-equiv="Refresh" content="0; url=./masuk.php" />';
-}
 
 $sess_id = (isset($_GET['id']) ? $_GET['id'] : $_SESSION["sistempakar_session"]['id']);
 $user = $conn->query("SELECT * FROM users WHERE id='$sess_id'")->fetch_assoc();

@@ -1,4 +1,10 @@
-<?php require('../database.php'); ?>
+<?php
+require('../database.php');
+if (!isset($_SESSION["sistempakar_session"]) && $_SESSION["sistempakar_session"]['level'] != 'admin') {
+    header('Location: ../masuk.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html class="no-js">
     <head>

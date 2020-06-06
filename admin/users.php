@@ -1,9 +1,6 @@
 <?php
 $title = 'Users';
 include('header.php');
-if (isset($_SESSION["sistempakar_session"]) && $_SESSION["sistempakar_session"]['level'] != 'admin') {
-    echo '<meta http-equiv="Refresh" content="0; url=./member.php" />';
-}
 
 $sess_id = $_SESSION["sistempakar_session"]['id'];
 $users = $conn->query("SELECT * FROM users");

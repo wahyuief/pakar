@@ -1,9 +1,6 @@
 <?php
 $title = 'Gejala';
 include('header.php');
-if (isset($_SESSION["sistempakar_session"]) && $_SESSION["sistempakar_session"]['level'] != 'admin') {
-    echo '<meta http-equiv="Refresh" content="0; url=./member.php" />';
-}
 
 $gejalanya = $conn->query("SELECT * FROM gejala ORDER BY id_gejala DESC");
 

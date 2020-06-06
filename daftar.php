@@ -98,7 +98,7 @@ if (isset($_POST['submit'])) {
                         <div class="btn-group btn-group-sm pull-right">
                             <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-arrow-right"></i> Sign Up</button>
                         </div>
-                        <a href="./masuk.php">Sudah punya akun? Masuk!</a>
+                        <a href="./masuk.php">Sudah punya akun? Masuk disini!</a>
                     </div>
                 </form>
             </div>

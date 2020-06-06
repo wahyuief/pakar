@@ -1,8 +1,5 @@
 <?php
 include('header.php');
-if (!isset($_SESSION["sistempakar_session"])) {
-    echo '<meta http-equiv="Refresh" content="0; url=./masuk.php" />';
-}
 
 $lastcode = $conn->query("SELECT * FROM gejala ORDER BY id_gejala DESC")->fetch_assoc()['kode_gejala'];
 if (isset($_POST['submit'])) {

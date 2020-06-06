@@ -1,9 +1,6 @@
 <?php
 $title = 'Gejala Penyakit';
 include('header.php');
-if (isset($_SESSION["sistempakar_session"]) && $_SESSION["sistempakar_session"]['level'] != 'admin') {
-    echo '<meta http-equiv="Refresh" content="0; url=./member.php" />';
-}
 
 $gpnya = $conn->query("SELECT id_gp, gejala.kode_gejala, gejala.nama_gejala, penyakit.kode_penyakit, penyakit.nama_penyakit, keyakinan, ketidakyakinan
                     FROM gejala_penyakit

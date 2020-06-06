@@ -1,8 +1,5 @@
 <?php
 include('header.php');
-if (!isset($_SESSION["sistempakar_session"])) {
-    echo '<meta http-equiv="Refresh" content="0; url=./masuk.php" />';
-}
 
 $id = $_GET['id'];
 $gejala = $conn->query("SELECT * FROM gejala WHERE id_gejala = $id")->fetch_assoc();

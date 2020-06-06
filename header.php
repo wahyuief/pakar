@@ -91,7 +91,7 @@
                                         <li><a href="./keluar.php">Keluar</a></li>';
                                     }
                                 } else {
-                                    echo '<li><a href="./masuk.php">Mulai Konseling</a></li>';
+                                    echo '<li><a href="./masuk.php">Masuk</a></li>';
                                 }
                                 ?>
                             </ul>

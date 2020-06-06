@@ -1,9 +1,6 @@
 <?php
 $title = 'Analisa';
 include('header.php');
-if (isset($_SESSION["sistempakar_session"]) && $_SESSION["sistempakar_session"]['level'] != 'admin') {
-    echo '<meta http-equiv="Refresh" content="0; url=./member.php" />';
-}
 
 $analisis = $conn->query("SELECT id_analisa, first_name, last_name, nik, penyakit.kode_penyakit, nama_penyakit, tanggal
                         FROM analisa
