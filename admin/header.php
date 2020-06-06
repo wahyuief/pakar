@@ -9,7 +9,7 @@
 
         <title><?php echo(isset($title) ? $title.' - ' : ''); ?>Admin Sistem Pakar</title>
 
-        <link rel="shortcut icon" href="<?php echo $basepath; ?>/assets/img/favicon.ico">
+        <link rel="shortcut icon" href="<?php echo $basepath; ?>/assets/img/favicon.png">
         <link rel="stylesheet" href="<?php echo $basepath; ?>/assets/css/bootstrap.css">
         <link rel="stylesheet" href="<?php echo $basepath; ?>/assets/css/plugins.css">
         <link rel="stylesheet" href="<?php echo $basepath; ?>/assets/css/main.css">

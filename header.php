@@ -48,7 +48,7 @@
     <link rel="stylesheet" href="./assets/css/responsive.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/ico" href="favicon.ico">
+    <link rel="icon" type="image/ico" href="./assets/img/favicon.png">
 
     <!-- Modernizer & Respond js -->
     <script src="./assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
