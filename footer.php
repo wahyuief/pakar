@@ -4,7 +4,7 @@
                     <div class="col-md-2 col-sm-4 col-xs-12">
                         <div class="footer-inner">
                             <div class="footer-content">
-                                <h4>YONA HERGALINA</h4>
+                                <h4>INTO THE LIGHT</h4>
                                 <address>Duren Sawit <br>Blok A No. 21 <br>Jakarta, Indonesia</address>
                             </div>
                         </div>
@@ -16,7 +16,7 @@
                                 <h4>CONTACT INFO</h4>
                                 <p>
                                     T: 0852-2169-1008<br>
-                                    E: yona@hergalina.id <br>
+                                    E: contact@intothelightid.org<br>
                                     W: yona.hergalina.id
                                 </p>
                             </div>
@@ -27,12 +27,12 @@
                         <div class="footer-inner">
                             <div class="footer-content">
                             <ul class="social-media">
-                                <li><a href="#"><i class="iconmoon-facebook"></i></a></li>
-                                <li><a href="#"><i class="iconmoon-twitter"></i></a></li>
-                                <li><a href="#"><i class="iconmoon-instagram"></i></a></li>
-                                <li><a href="#"><i class="iconmoon-linkedin2"></i></a></li>
+                                <li><a href="https://www.facebook.com/intothelightid"><i class="iconmoon-facebook"></i></a></li>
+                                <li><a href="https://www.twitter.com/intothelightid"><i class="iconmoon-twitter"></i></a></li>
+                                <li><a href="https://www.instagram.com/intothelightid"><i class="iconmoon-instagram"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/into-the-light-indonesia"><i class="iconmoon-linkedin2"></i></a></li>
                             </ul>
-                            <span class="copyright-mark">Copyright &copy; 2020 Yona Hergalina. All Rights Reserved.</span>
+                            <span class="copyright-mark">Copyright &copy; 2020 Into The Light. All Rights Reserved.</span>
                             </div>
                         </div>
                     </div>

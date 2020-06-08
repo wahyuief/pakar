@@ -26,7 +26,10 @@ if (isset($_POST['submit'])) {
             $password = password_hash($password, PASSWORD_ARGON2I);
             $sql = "INSERT INTO users (nik, first_name, last_name, phone, birthdate, gender, address, email, password) VALUES ('$nik', '$first_name', '$last_name', '$phone', '$birthdate', '$gender', '$address', '$email', '$password')";
             if ($conn->query($sql) == TRUE) {
+                $user = $conn->query("SELECT * FROM users WHERE id='$conn->insert_id'")->fetch_assoc();
+                $_SESSION["sistempakar_session"] = $user;
                 $pesan = '<div class="alert alert-success">Pendaftaran Berhasil</div>';
+                echo '<meta http-equiv="Refresh" content="2; url=./member.php" />';
             } else {
                 $failed = true;
                 $pesan = '<div class="alert alert-danger">'.$conn->error.'</div>';
@@ -49,7 +52,7 @@ if (isset($_POST['submit'])) {
                 <?php echo(isset($pesan) ? $pesan : '') ?>
                 <form method="post" class="form-horizontal">
                     <div class="form-group">
-                        <input type="number" id="nik" name="nik" placeholder="Nomor Induk Kependudukan" class="form-control" value="<?php echo(isset($failed) ? $nik : '') ?>" required>
+                        <input type="number" id="nik" name="nik" placeholder="Nomor Induk Kependudukan" class="form-control" value="<?php echo(isset($failed) ? $nik : '') ?>" onKeyPress="if(this.value.length==16) return false;" required>
                     </div>
                     <div class="row">
                         <div class="col-md-6">

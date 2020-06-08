@@ -101,17 +101,17 @@
                     <div class="hidden-xs">
                         <div class="menu-social-media">
                             <ul>
-                               <li><a href="#"><i class="iconmoon-facebook"></i></a></li>
-                               <li><a href="#"><i class="iconmoon-twitter"></i></a></li>
-                               <li><a href="#"><i class="iconmoon-instagram"></i></a></li>
-                               <li><a href="#"><i class="iconmoon-linkedin2"></i></a></li>
+                               <li><a href="https://www.facebook.com/intothelightid"><i class="iconmoon-facebook"></i></a></li>
+                               <li><a href="https://www.twitter.com/intothelightid"><i class="iconmoon-twitter"></i></a></li>
+                               <li><a href="https://www.instagram.com/intothelightid"><i class="iconmoon-instagram"></i></a></li>
+                               <li><a href="https://www.linkedin.com/company/into-the-light-indonesia"><i class="iconmoon-linkedin2"></i></a></li>
                             </ul>
                         </div>
 
                         <div class="menu-information">
                             <ul>
                                 <li><span>T:</span> 0852-2169-1008</li>
-                                <li><span>E:</span> yona@hergalina.id</li>
+                                <li><span>E:</span> contact@intothelightid.org</li>
                                 <li><span>W:</span> yona.hergalina.id</li>
                             </ul>
                         </div>

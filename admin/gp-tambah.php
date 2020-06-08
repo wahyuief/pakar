@@ -7,12 +7,10 @@ $penyakitnya = $conn->query("SELECT * FROM penyakit ORDER BY id_penyakit DESC");
 if (isset($_POST['submit'])) {
     $kode_gejala = $_POST['kode_gejala'];
     $kode_penyakit = $_POST['kode_penyakit'];
-    $keyakinan = $_POST['keyakinan'];
-    $ketidakyakinan = $_POST['ketidakyakinan'];
 
     $check_gp = $conn->query("SELECT * FROM gejala_penyakit WHERE kode_gejala='$kode_gejala' AND kode_penyakit='$kode_penyakit'");
     if ($check_gp->num_rows == 0) {
-        $query = "INSERT INTO gejala_penyakit (kode_gejala, kode_penyakit, keyakinan, ketidakyakinan) VALUE ('$kode_gejala', '$kode_penyakit', $keyakinan, $ketidakyakinan)";
+        $query = "INSERT INTO gejala_penyakit (kode_gejala, kode_penyakit) VALUE ('$kode_gejala', '$kode_penyakit')";
         if ($conn->query($query) === TRUE) {
             $pesan = '<div class="alert alert-success">Penambahan Data Berhasil</div>';
             echo '<meta http-equiv="Refresh" content="1; url=./gp.php" />';
@@ -36,19 +34,7 @@ if (isset($_POST['submit'])) {
                             <div class="panel-body table-responsive">
                                 <table class="table">
                                     <tr>
-                                        <td width="150">Kode Gejala <i class="text-danger">*</i></td>
-                                        <td>:</td>
-                                        <td>
-                                            <select name="kode_gejala" id="gejala" class="form-control" required>
-                                                <option value="" selected disabled>Pilih gejala</option>
-                                                <?php while($gejala = $gejalanya->fetch_assoc()): ?>
-                                                    <option <?php echo(isset($kode_gejala) && $gejala['kode_gejala'] == $kode_gejala ? 'selected' : '') ?> value="<?php echo $gejala['kode_gejala'] ?>"><?php echo $gejala['nama_gejala'] ?></option>
-                                                <?php endwhile; ?>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kode Penyakit <i class="text-danger">*</i></td>
+                                        <td width="150">Penyakit <i class="text-danger">*</i></td>
                                         <td>:</td>
                                         <td>
                                             <select name="kode_penyakit" id="penyakit" class="form-control" required>
@@ -60,14 +46,16 @@ if (isset($_POST['submit'])) {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Keyakinan <i class="text-danger">*</i></td>
+                                        <td>Gejala <i class="text-danger">*</i></td>
                                         <td>:</td>
-                                        <td><input type="text" name="keyakinan" id="yakin" class="form-control" placeholder="7.5" value="<?php echo(isset($keyakinan) ? $keyakinan : ''); ?>" required></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ketidakyakinan <i class="text-danger">*</i></td>
-                                        <td>:</td>
-                                        <td><input type="text" name="ketidakyakinan" id="tidakyakin" class="form-control" placeholder="2.5" value="<?php echo(isset($ketidakyakinan) ? $ketidakyakinan : ''); ?>" required></td>
+                                        <td>
+                                            <select name="kode_gejala" id="gejala" class="form-control" required>
+                                                <option value="" selected disabled>Pilih gejala</option>
+                                                <?php while($gejala = $gejalanya->fetch_assoc()): ?>
+                                                    <option <?php echo(isset($kode_gejala) && $gejala['kode_gejala'] == $kode_gejala ? 'selected' : '') ?> value="<?php echo $gejala['kode_gejala'] ?>"><?php echo $gejala['nama_gejala'] ?></option>
+                                                <?php endwhile; ?>
+                                            </select>
+                                        </td>
                                     </tr>
                                 </table>
                                 <div class="text-right">

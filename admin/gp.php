@@ -2,7 +2,7 @@
 $title = 'Gejala Penyakit';
 include('header.php');
 unset($_SESSION["pesan"]);
-$gpnya = $conn->query("SELECT id_gp, gejala.kode_gejala, gejala.nama_gejala, penyakit.kode_penyakit, penyakit.nama_penyakit, keyakinan, ketidakyakinan
+$gpnya = $conn->query("SELECT id_gp, gejala.kode_gejala, gejala.nama_gejala, penyakit.kode_penyakit, penyakit.nama_penyakit
                     FROM gejala_penyakit
                     LEFT JOIN gejala ON gejala_penyakit.kode_gejala = gejala.kode_gejala
                     LEFT JOIN penyakit ON gejala_penyakit.kode_penyakit = penyakit.kode_penyakit
@@ -60,9 +60,6 @@ $gpnya = $conn->query("SELECT id_gp, gejala.kode_gejala, gejala.nama_gejala, pen
                         <th width="10">No</th>
                         <th>Nama Penyakit</th>
                         <th>Nama Gejala</th>
-                        <th class="cell-small">Keyakinan</th>
-                        <th class="cell-small">Ketidakyakinan</th>
-                        <th class="cell-small">Total</th>
                         <th class="cell-small">Option</th>
                     </tr>
                 </thead>
@@ -72,9 +69,6 @@ $gpnya = $conn->query("SELECT id_gp, gejala.kode_gejala, gejala.nama_gejala, pen
                         <td class="text-center"><?php echo $i++; ?></td>
                         <td><?php echo $gp['nama_penyakit']; ?></td>
                         <td><?php echo $gp['nama_gejala']; ?></td>
-                        <td><?php echo $gp['keyakinan']; ?></td>
-                        <td><?php echo $gp['ketidakyakinan']; ?></td>
-                        <td><?php echo $gp['keyakinan']+$gp['ketidakyakinan']; ?></td>
                         <td>
                             <div class="btn-group">
                                 <a href="./gp-edit.php?id=<?php echo $gp['id_gp']; ?>" data-toggle="tooltip" title="" class="btn btn-xs btn-success" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
