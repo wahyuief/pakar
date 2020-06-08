@@ -69,6 +69,7 @@ function gejala_dari_penyakit($kode){
                         <th width="10">No</th>
                         <th>Nama Penyakit</th>
                         <th>Nama Gejala</th>
+                        <th class="cell-small">Option</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -77,6 +78,12 @@ function gejala_dari_penyakit($kode){
                         <td class="text-center"><?php echo $i++; ?></td>
                         <td><?php echo $gp['nama_penyakit']; ?></td>
                         <td><?php echo $gp['nama_gejala']; ?></td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="./gp-edit.php?id=<?php echo $gp['id_gp']; ?>" data-toggle="tooltip" title="" class="btn btn-xs btn-success" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:void(0)" onclick="var c = confirm('Yakin ingin menghapus?');if(c){location.replace('./gp-hapus.php?id=<?php echo $gp['id_gp']; ?>')}" data-toggle="tooltip" title="" class="btn btn-xs btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                            </div>
+                        </td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>
@@ -92,7 +99,6 @@ function gejala_dari_penyakit($kode){
                         <th>IF</th>
                         <th>THEN</th>
                         <th>Keterangan</th>
-                        <th class="cell-small">Option</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,12 +108,6 @@ function gejala_dari_penyakit($kode){
                         <td><?php gejala_dari_penyakit($sakit['kode_penyakit']); ?></td>
                         <td><?php echo $sakit['kode_penyakit']; ?></td>
                         <td><?php echo $sakit['nama_penyakit']; ?></td>
-                        <td>
-                            <div class="btn-group">
-                                <a href="./gp-edit.php?id=<?php echo $gp['id_gp']; ?>" data-toggle="tooltip" title="" class="btn btn-xs btn-success" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-                                <a href="javascript:void(0)" onclick="var c = confirm('Yakin ingin menghapus?');if(c){location.replace('./gp-hapus.php?id=<?php echo $gp['id_gp']; ?>')}" data-toggle="tooltip" title="" class="btn btn-xs btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a>
-                            </div>
-                        </td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>
