@@ -116,31 +116,46 @@
                     {
                         extend : 'excelHtml5',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2]
                         }
                     },
                     {
                         extend : 'pdfHtml5',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2]
                         }
                     },
                     {
                         extend : 'print',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2]
                         }
                     }
                 ]
             } );
-            $('#yakin').on('keyup', function(){
-                if (this.value != '') {
-                    var tidakyakin = 10-parseFloat(this.value);
-                    $('#tidakyakin').val(Number(tidakyakin).toFixed(1));
-                } else {
-                    $('#tidakyakin').val('');
-                }
-            })
+            $('#rbAdminTable').DataTable( {
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend : 'excelHtml5',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4]
+                        }
+                    },
+                    {
+                        extend : 'pdfHtml5',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4]
+                        }
+                    },
+                    {
+                        extend : 'print',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4]
+                        }
+                    }
+                ]
+            } );
         </script>
     </body>
 </html>

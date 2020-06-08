@@ -8,6 +8,15 @@ $gpnya = $conn->query("SELECT id_gp, gejala.kode_gejala, gejala.nama_gejala, pen
                     LEFT JOIN penyakit ON gejala_penyakit.kode_penyakit = penyakit.kode_penyakit
                     ORDER BY id_gp DESC");
 
+$penyakit = $conn->query("SELECT * FROM penyakit");
+function gejala_dari_penyakit($kode){
+    global $conn;
+    $gejala = $conn->query("SELECT * FROM gejala_penyakit WHERE kode_penyakit='$kode'");
+    while ($g = $gejala->fetch_assoc()) {
+        $kode_gejala[] = $g['kode_gejala'];
+    }
+    echo(isset($kode_gejala) ? implode(', ', $kode_gejala) : '');
+}
 ?>
 <div id="inner-container">
     <div id="page-content">
@@ -69,6 +78,37 @@ $gpnya = $conn->query("SELECT id_gp, gejala.kode_gejala, gejala.nama_gejala, pen
                         <td class="text-center"><?php echo $i++; ?></td>
                         <td><?php echo $gp['nama_penyakit']; ?></td>
                         <td><?php echo $gp['nama_gejala']; ?></td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="./gp-edit.php?id=<?php echo $gp['id_gp']; ?>" data-toggle="tooltip" title="" class="btn btn-xs btn-success" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:void(0)" onclick="var c = confirm('Yakin ingin menghapus?');if(c){location.replace('./gp-hapus.php?id=<?php echo $gp['id_gp']; ?>')}" data-toggle="tooltip" title="" class="btn btn-xs btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Rule Base</h2>
+        <div class="table-responsive">
+            <table id="rbAdminTable" class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th width="10">RULE</th>
+                        <th>IF</th>
+                        <th>THEN</th>
+                        <th>Keterangan</th>
+                        <th class="cell-small">Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $i=1;while($sakit = $penyakit->fetch_assoc()): ?>
+                    <tr>
+                        <td class="text-center"><?php echo $i++; ?></td>
+                        <td><?php gejala_dari_penyakit($sakit['kode_penyakit']); ?></td>
+                        <td><?php echo $sakit['kode_penyakit']; ?></td>
+                        <td><?php echo $sakit['nama_penyakit']; ?></td>
                         <td>
                             <div class="btn-group">
                                 <a href="./gp-edit.php?id=<?php echo $gp['id_gp']; ?>" data-toggle="tooltip" title="" class="btn btn-xs btn-success" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
