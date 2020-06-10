@@ -81,7 +81,7 @@ function penyakit($kode){
     global $conn;
     $kode = $kode[0];
     $penyakit = $conn->query("SELECT * FROM penyakit WHERE kode_penyakit='$kode'");
-    return $penyakit->fetch_assoc()['nama_penyakit'];
+    return $penyakit->fetch_assoc();
 }
 
 if (isset($_GET['hpus'])) {
@@ -93,7 +93,7 @@ if (isset($_GET['hpus'])) {
     <div class="container">
         <?php if($gejala['nama_gejala'] != null): ?>
         <p>Hai <b><?php echo $user['first_name'] ?></b>, Yuk Mulai Konseling. Jawab pertanyaan berikut ini yaa.</p>
-        <h1>Apakah Anda Merasa <?php echo $gejala['kode_gejala'].' : '.$gejala['nama_gejala'] ?></h1>
+        <h1>Apakah Anda Merasa <?php echo $gejala['nama_gejala'] ?></h1>
         <form method="post">
             <input type="hidden" name="kode_gejala_pertama" value="<?php echo $gejala['kode_gejala'] ?>">
             <div class="form-group">
@@ -102,8 +102,17 @@ if (isset($_GET['hpus'])) {
             </div>
         </form>
         <?php else: ?>
-        Kemungkinan penyakit anda yaitu <?php echo penyakit(looping_sesi($sesi_konseling)); ?>
-        <?php endif; ?>
+        Kemungkinan penyakit anda yaitu <b><?php echo penyakit(looping_sesi($sesi_konseling))['nama_penyakit']; ?></b>
+        <br><br>
+        <b>Definisi:</b><br>
+        <?php echo penyakit(looping_sesi($sesi_konseling))['definisi']; ?>
+        <br><br>
+        <b>Solusi:</b><br>
+        <?php echo penyakit(looping_sesi($sesi_konseling))['pengendalian']; ?>
+        <?php 
+        $kodesakit = penyakit(looping_sesi($sesi_konseling))['kode_penyakit'];
+    $conn->query("INSERT INTO analisa (id_user, kode_penyakit) VALUE ('$sess_id', '$kodesakit')");
+    endif; ?>
     </div>
 </div>
 <?php include('footer.php') ?>
