@@ -58,6 +58,15 @@
     <script src="./assets/js/vendor/wow.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/ajax.js"></script>
+    <script type='text/javascript'>
+
+    $(document).ready(function() { 
+        $('input[name=jawaban]').change(function(){
+            $('form').submit();
+        });
+    });
+
+    </script>
 </body>
 </html>
 <?php $conn->close(); ?>
