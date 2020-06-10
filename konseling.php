@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include('header.php');
 if (!isset($_SESSION["sistempakar_session"])) {
     echo '<meta http-equiv="Refresh" content="0; url=./masuk.php" />';
@@ -21,28 +22,27 @@ if (isset($sesi_konseling)) {
             $gejala = array('nama_gejala'=>null);
         }
     }
-    echo '<br><br>Kode Penyakit<br>';
-    print_r(looping_sesi($sesi_konseling));
-    echo '<br><br>Kode Gejala<br>';
-    print_r($koge);
-    echo '<br><br>Jawaban Iya<br>';
-    print_r($sesi_konseling);
-    echo '<br><br>Jawaban Tidak<br>';
-    print_r($tidak);
-    echo '<br><br>Yang Dipilih<br>';
-    print_r($sesi_konseling);
+    // echo '<br><br>Kode Penyakit<br>';
+    // print_r(looping_sesi($sesi_konseling));
+    // echo '<br><br>Kode Gejala<br>';
+    // print_r($koge);
+    // echo '<br><br>Jawaban Iya<br>';
+    // print_r($sesi_konseling);
+    // echo '<br><br>Jawaban Tidak<br>';
+    // print_r($tidak);
 } else {
     $gejala = $conn->query("SELECT * FROM gejala ORDER BY rand() LIMIT 1")->fetch_assoc();
 }
 
 if (isset($_POST['jawaban'])) {
     if ($_POST['jawaban'] == 'iya') {
-        $_SESSION['jawaban_'.strtolower($user['first_name'])][$step] = $gejala['kode_gejala'];
+        $_SESSION['jawaban_'.strtolower($user['first_name'])][$step] = (isset($step) ? $_POST['kode_gejala_pertama'] : $gejala['kode_gejala']);
     } else {
-        $_SESSION['jawaban_tidak'][$step] = $gejala['kode_gejala'];
+        $_SESSION['jawaban_tidak'][$step] = (isset($step) ? $_POST['kode_gejala_pertama'] : $gejala['kode_gejala']);
     }
     $next_step = $step+1;
-    echo '<meta http-equiv="Refresh" content="0, url=konseling.php?step='.$next_step.'">';
+    header('Location: konseling.php?step='.$next_step);
+    // echo '<meta http-equiv="Refresh" content="0, url=konseling.php?step='.$next_step.'">';
 }
 
 function looping_sesi($sesi, $table = 'penyakit'){
@@ -95,6 +95,7 @@ if (isset($_GET['hpus'])) {
         <p>Hai <b><?php echo $user['first_name'] ?></b>, Yuk Mulai Konseling. Jawab pertanyaan berikut ini yaa.</p>
         <h1>Apakah Anda Merasa <?php echo $gejala['kode_gejala'].' : '.$gejala['nama_gejala'] ?></h1>
         <form method="post">
+            <input type="hidden" name="kode_gejala_pertama" value="<?php echo $gejala['kode_gejala'] ?>">
             <div class="form-group">
                 <input type="radio" name="jawaban" value="iya" class="input-control"> Iya <br>
                 <input type="radio" name="jawaban" value="tidak" class="input-control"> Tidak
