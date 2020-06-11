@@ -84,9 +84,15 @@ function penyakit($kode){
     return $penyakit->fetch_assoc();
 }
 
+function check_penyakit($kode, $sess_id){
+    global $conn;
+    $kode = $kode[0];
+    $tanggal = date('Y-m-d');
+    $penyakit = $conn->query("SELECT * FROM analisa WHERE id_user=$sess_id AND kode_penyakit='$kode' AND DATE(tanggal) = '$tanggal'");
+    return $penyakit->num_rows;
+}
 if (isset($_GET['hpus'])) {
-    unset($sesi_konseling);
-    session_destroy();
+    unset($_SESSION['jawaban_'.strtolower($user['first_name'])]);
 }
 ?>
 <div class="main margin-top">
@@ -111,7 +117,11 @@ if (isset($_GET['hpus'])) {
         <?php echo penyakit(looping_sesi($sesi_konseling))['pengendalian']; ?>
         <?php 
         $kodesakit = penyakit(looping_sesi($sesi_konseling))['kode_penyakit'];
-    $conn->query("INSERT INTO analisa (id_user, kode_penyakit) VALUE ('$sess_id', '$kodesakit')");
+        if (check_penyakit(looping_sesi($sesi_konseling), $sess_id) == 0) {
+            $conn->query("INSERT INTO analisa (id_user, kode_penyakit) VALUE ('$sess_id', '$kodesakit')");
+        } else {
+            header('Location: konseling.php?hpus=1');
+        }
     endif; ?>
     </div>
 </div>
