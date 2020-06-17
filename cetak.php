@@ -67,7 +67,7 @@ $analisis = $conn->query("SELECT id_analisa, nama_penyakit, definisi, pengendali
             <p>Dengan ini menerangkan bahwa berdasarkan hasil pemeriksaan yang telah dilakukan kepada pasien: </p>
             <ol>
                 <li><b>NIK</b> : <?php echo $analisis['nik'] ?></li>
-                <li><b>Nama</b> : <?php echo $analisis['first_name'] ?></li>
+                <li><b>Nama</b> : <?php echo $analisis['first_name'].' '.$analisis['last_name'] ?></li>
                 <li><b>Alamat</b> : <?php echo $analisis['address'] ?></li>
                 <li><b>Diagnosa Penyakit</b> : <?php echo $analisis['nama_penyakit'] ?></li>
                 <li><b>Definisi Penyakit</b> : <?php echo $analisis['definisi'] ?></li>
