@@ -45,6 +45,7 @@ $analisis = $conn->query("SELECT id_analisa, nama_penyakit, pengendalian, tangga
                                     <th>Nama Penyakit</th>
                                     <th>Pengendalian</th>
                                     <th width="200">Tanggal Konseling</th>
+                                    <th width="100">Cetak</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,6 +54,7 @@ $analisis = $conn->query("SELECT id_analisa, nama_penyakit, pengendalian, tangga
                                     <td><?php echo $analisa['nama_penyakit']; ?></td>
                                     <td><?php echo $analisa['pengendalian']; ?></td>
                                     <td><?php echo date('d F Y', strtotime($analisa['tanggal'])); ?></td>
+                                    <td><a href="cetak.php?id=<?php echo $analisa['id_analisa']; ?>" style="color: blue;font-size:32px;font-weight:800">⎙</a></td>
                                 </tr>
                                 <?php endwhile; ?>
                             </tbody>
