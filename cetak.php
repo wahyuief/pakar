@@ -29,7 +29,7 @@ $analisis = $conn->query("SELECT id_analisa, nama_penyakit, definisi, pengendali
             padding: 30px;
         }
         .bagian-cetak h1 {
-            font-size: 27px;
+            font-size: 24px;
             text-align: center;
             text-decoration: underline;
         }
